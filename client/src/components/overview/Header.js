@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Header = () => {
-
+const Header = (props) => {
 	return (
 		<div>
-			Occupation Overview<br />
-			Title in Location
+			<h1>Occupation Overview</h1>
+			{props.occupationTitle && props.regionTitle ? `${props.occupationTitle} in ${props.regionTitle}` : "Loading..."}
 		</div>
 	);
 

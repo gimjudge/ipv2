@@ -6,6 +6,7 @@ import { fetchOccupationOverview } from '../../redux/actions';
 
 // Components
 import Header from './Header';
+import Summary from './summary/Summary';
 
 class Overview extends React.Component {
 
@@ -14,16 +15,28 @@ class Overview extends React.Component {
 	}
 
 	render() {
-		return (
-			<div class="ui container">
-				<Header />
-				Summary
-				<br />
-				Regional Trends
-				<br />
-				Industries Employing
-			</div>
-		);
+		
+		if (this.props.overview) {
+			//console.log(this.props.overview)
+			// Dry Occupation Title
+			const occupationTitle = this.props.overview.occupation.title;
+			return (
+				<div className="ui container">
+					<Header occupationTitle={occupationTitle} regionTitle={this.props.overview.region.title} />
+					<Summary occupationTitle={occupationTitle} summary={this.props.overview.summary} />
+					<br />
+					Regional Trends
+					<br />
+					Industries Employing
+				</div>
+			);
+		} else {
+			return (
+				<div className="ui container">
+					<Header />
+				</div>
+			);
+		}
 	}
 }
 
