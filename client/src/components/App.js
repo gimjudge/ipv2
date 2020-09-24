@@ -1,12 +1,18 @@
 import React from 'react';
+import { Router, Route } from 'react-router-dom';
 
-class App extends React.Component {
+import history from '../history';
 
-	render() {
-		return (
-			<div>Hello Emsi</div>
-		);
-	}
-}
+import Overview from './overview/Overview';
+
+const App = () => {
+	return (
+		<div>
+			<Router history={history}>
+				<Route path="/" exact component={Overview} />
+			</Router>
+		</div>
+	);
+};
 
 export default App;
