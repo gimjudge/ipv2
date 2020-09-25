@@ -10,11 +10,13 @@ const Summary = ({ occupationTitle, summary} ) => {
 	console.log (summary);
 
 	return (
-		<div className="ui container">
+		<div className="ui container overview-section">
 			<h5>Occupation Summary for {occupationTitle}</h5>
-			<Jobs />
-			<Change />
-			<Earnings />
+			<div className="ui grid occupation-summary">
+				<Jobs data={summary.jobs} />
+				<Change data={summary.jobs_growth} />
+				<Earnings data={summary.earnings} />
+			</div>
 		</div>
 	);
 }

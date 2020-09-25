@@ -5,6 +5,8 @@ import history from '../history';
 
 import Overview from './overview/Overview';
 
+import '../css/App.css';
+
 const App = () => {
 	return (
 		<div>
