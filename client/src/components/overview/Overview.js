@@ -7,6 +7,7 @@ import { fetchOccupationOverview } from '../../redux/actions';
 // Components
 import Header from './Header';
 import Summary from './summary/Summary';
+import Trends from './trends/Trends';
 
 class Overview extends React.Component {
 
@@ -24,8 +25,7 @@ class Overview extends React.Component {
 				<div className="ui container">
 					<Header occupationTitle={occupationTitle} regionTitle={this.props.overview.region.title} />
 					<Summary occupationTitle={occupationTitle} summary={this.props.overview.summary} />
-					<br />
-					Regional Trends
+					<Trends />
 					<br />
 					Industries Employing
 				</div>
