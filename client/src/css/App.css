@@ -28,3 +28,11 @@
 .summary-block:last-child {
 	border-right: 0px;
 }
+
+/*
+	Regional Trends
+*/
+
+.regional-trends {
+	margin-top: 40px;
+}

@@ -4,9 +4,9 @@ import Legend from './Legend';
 
 const Trends = () => {
 	return (
-		<div className="ui container overview-section">
+		<div className="ui container overview-section regional-trends">
 			<h5>Regional Trends</h5>
-			<div class="ui divider"></div>
+			<div className="ui divider"></div>
 			<LineGraph />
 			<Legend />
 		</div>

@@ -5,9 +5,9 @@ import Change from './Change';
 import Earnings from './Earnings';
 import Jobs from './Jobs';
 
-const Summary = ({ occupationTitle, summary} ) => {
+const Summary = ({ occupationTitle, summary}) => {
 	
-	console.log (summary);
+	//console.log (summary);
 
 	return (
 		<div className="ui container overview-section">

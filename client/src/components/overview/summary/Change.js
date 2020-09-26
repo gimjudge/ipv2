@@ -4,6 +4,9 @@ const Change = ({ data }) => {
 	
 	const {regional, start_year: startYear, end_year: endYear, national_avg: nationalAvg} = data;
 
+	/* 
+		Adds Color and Symbols based on Positive or negative values.
+	*/ 
 	const percentSignColor = (percent) => {
 		if (percent > 0) {
 			return <span style={{color:"#27A508"}}>+{percent}%</span>;
