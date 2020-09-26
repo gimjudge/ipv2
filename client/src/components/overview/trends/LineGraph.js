@@ -17,8 +17,8 @@ class Linegraph extends React.Component {
 
 		Expected Results example:
 		[
-			{name: 2013, regional: 100, state: 50, national: 75},
-			{name: 2014, regional: 110, state: 55, national: 80}
+			{year: 2013, regionalTrends: 100, stateTrends: 50, nationTrends: 75},
+			{year: 2014, regionalTrends: 110, stateTrends: 55, nationTrends: 80}
 		]
 		Really need to work on dry.
 		Break up into two functions?
@@ -52,6 +52,8 @@ class Linegraph extends React.Component {
 				yearDataPercent.year = year;
 
 				if (i === 0) {
+					//Actual Values
+					yearData[dataTitles[index]] = dataValues[dataTitles[index]][0];
 					//Base Value to compute percentage
 					baseValues[dataTitles[index]] = dataValues[dataTitles[index]][0]
 					yearDataPercent[dataTitles[index]] = 0;
@@ -62,12 +64,14 @@ class Linegraph extends React.Component {
 				*/
 				if (dataValues[dataTitles[index]].length !== yearCount) {
 					
-					if (i === 0) {
-						//Actual Values
-						yearData[dataTitles[index]] = dataValues[dataTitles[index]][0];
-						//Percentage
-						yearDataPercent[dataTitles[index]] = 0;
-					} else if (i === yearCount - 1) {
+					// if (i === 0) {
+					// 	//Actual Values
+					// 	yearData[dataTitles[index]] = dataValues[dataTitles[index]][0];
+					// 	//Percentage
+					// 	yearDataPercent[dataTitles[index]] = 0;
+					// } else 
+					
+					if (i === yearCount - 1) {
 						//Actual Values
 						yearData[dataTitles[index]] = dataValues[dataTitles[index]][dataValues[dataTitles[index]].length-1];
 						//percentage

@@ -3,7 +3,7 @@ import React from 'react';
 class TriangleLineDot extends React.Component {
 
 	render() {
-		const { cx, cy, stroke, payload } = this.props;
+		const { cx, cy, stroke} = this.props;
 
 		if (cx !== +cx || cy !== +cy) { return null; }
 
