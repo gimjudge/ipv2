@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Redux Action
-import { fetchOccupationOverview } from '../../redux/actions';
+import { fetchOccupationOverview, fetchOccupationOverviewJSON } from '../../redux/actions';
 
 // Components
 import Header from './Header';
@@ -12,7 +12,10 @@ import Trends from './trends/Trends';
 class Overview extends React.Component {
 
 	componentDidMount() {
-		this.props.fetchOccupationOverview();
+		//Mocky
+		//this.props.fetchOccupationOverview();
+		//JSON Server
+		this.props.fetchOccupationOverviewJSON();
 	}
 
 	render() {
@@ -46,4 +49,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { fetchOccupationOverview })(Overview);
+export default connect(mapStateToProps, { fetchOccupationOverview, fetchOccupationOverviewJSON })(Overview);

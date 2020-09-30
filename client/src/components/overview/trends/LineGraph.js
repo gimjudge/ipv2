@@ -37,9 +37,16 @@ class Linegraph extends React.Component {
 		let yearData = {};
 		let yearDataPercent = {};
 
+		//Make things more readable
+		let indexTitle = '';
+
+
+
 		//Loop Through years
 		for (let i = 0; i < yearCount; i++) {
+			//Actual
 			yearData = {};
+			//Percent
 			yearDataPercent = {};
 
 			//Loop Through Datatypes
@@ -50,38 +57,41 @@ class Linegraph extends React.Component {
 				year = startYear+i;
 				yearData.year = year;
 				yearDataPercent.year = year;
+				
+				// Make things more readable
+				indexTitle = dataTitles[index];
 
 				if (i === 0) {
 					//Actual Values
-					yearData[dataTitles[index]] = dataValues[dataTitles[index]][0];
+					yearData[indexTitle] = dataValues[indexTitle][0];
 					//Base Value to compute percentage
-					baseValues[dataTitles[index]] = dataValues[dataTitles[index]][0]
-					yearDataPercent[dataTitles[index]] = 0;
+					baseValues[indexTitle] = dataValues[indexTitle][0]
+					yearDataPercent[indexTitle] = 0;
 				}
 				
 				/*
 					This if will leave out middle values if there is missing Data. Unable to know what data is connected to what year.
 				*/
-				if (dataValues[dataTitles[index]].length !== yearCount) {
+				if (dataValues[indexTitle].length !== yearCount) {
 					
 					// if (i === 0) {
 					// 	//Actual Values
-					// 	yearData[dataTitles[index]] = dataValues[dataTitles[index]][0];
+					// 	yearData[indexTitle] = dataValues[indexTitle][0];
 					// 	//Percentage
-					// 	yearDataPercent[dataTitles[index]] = 0;
+					// 	yearDataPercent[indexTitle] = 0;
 					// } else 
 					
 					if (i === yearCount - 1) {
 						//Actual Values
-						yearData[dataTitles[index]] = dataValues[dataTitles[index]][dataValues[dataTitles[index]].length-1];
+						yearData[indexTitle] = dataValues[indexTitle][dataValues[indexTitle].length-1];
 						//percentage
-						yearDataPercent[dataTitles[index]] = (( dataValues[dataTitles[index]][dataValues[dataTitles[index]].length-1] / baseValues[dataTitles[index]] )-1)*100;
+						yearDataPercent[indexTitle] = (( dataValues[indexTitle][dataValues[indexTitle].length-1] / baseValues[indexTitle] )-1)*100;
 					}
 				} else {
 					//Actual Values
-					yearData[dataTitles[index]] = dataValues[dataTitles[index]][i];
+					yearData[indexTitle] = dataValues[indexTitle][i];
 					//Percentage
-					yearDataPercent[dataTitles[index]] = (( dataValues[dataTitles[index]][i]/baseValues[dataTitles[index]] )-1)*100;
+					yearDataPercent[indexTitle] = (( dataValues[indexTitle][i]/baseValues[indexTitle] )-1)*100;
 				}
 				
 
@@ -97,7 +107,7 @@ class Linegraph extends React.Component {
 
 	render() {
 
-		console.log(this.buildTrendsDataArray());
+		//console.log(this.buildTrendsDataArray());
 		//Need to Make responsive
 		return (
 			<LineChart
